@@ -9,9 +9,18 @@
 		./impermanence/nixos.nix
 		./impermanence/home-manager.nix
 	];
-	
-	environment.persistence."/stay" = {
 
+	environment.persistence."/stay" = {
+		directories = [
+      "/etc/NetworkManager/system-connections"
+      "/etc/nixos"
+      "/var/lib/bluetooth"
+      "/var/lib/systemd/coredump"
+      "/var/log"
+      ];
+    files = [
+      "/etc/machine-id"
+    ];
 	};
 
 
