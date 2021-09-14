@@ -12,5 +12,6 @@
       ./gnome.nix
       ./experimental.nix
       ./ephemera.nix
+      ./wayland.nix
     ];
 }
