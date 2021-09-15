@@ -27,6 +27,9 @@
 
   networking.useDHCP = false;
 
+  # allow unfree packages like sublime3
+  nixpkgs.config.allowUnfree = true;
+
   programs.fish.enable = true;
   programs.fuse.userAllowOther = true; # so root can access user impermanence files
 
@@ -39,6 +42,8 @@
   #yuck, systemd
   systemd.enableEmergencyMode = false;
 
+  time.timeZone = "America/Louisville";
+
   users = {
     mutableUsers = false;
     # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -46,12 +51,9 @@
       fin = {
         extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
         isNormalUser = true;
-        passwordFile = "/stay/passwd/fin";
         shell = pkgs.fish;
       };
       root = {
-        initialHashedPassword = "!";
-        #passwordFile = "/stay/passwd/root";
         shell = pkgs.fish;
       };
     };
